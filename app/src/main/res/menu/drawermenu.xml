@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/db"
+        android:title="dashboard"
+        android:icon="@drawable/ic_dashboard"/>
+
+        <item android:id="@+id/search"
+        android:title="Donation History"
+        android:icon="@drawable/ic_history_black_24dp"/>
+
+    <item android:id="@+id/settings"
+        android:title="Settings"
+        android:icon="@drawable/ic_settings_black_24dp"/>
+
+    <item android:id="@+id/qrcode"
+        android:title="QR Code"
+        />
+
+    <item android:id="@+id/qrScanner"
+        android:title="QR Scanner"
+        />
+
+    <item android:id="@+id/logout"
+        android:title="Log out" />
+
+</menu>
