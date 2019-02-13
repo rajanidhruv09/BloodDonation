@@ -10,6 +10,7 @@ import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.util.Patterns;
 import android.view.MenuItem;
@@ -41,15 +42,21 @@ public class RegistrationNew extends AppCompatActivity {
     int month;
     int dayOfMonth;
     DatePickerDialog datePickerDialog;
+    private Toolbar toolbar;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.registration);
 
-        ActionBar bar = getSupportActionBar();
-        bar.setDisplayHomeAsUpEnabled(true);
-        bar.setTitle("Registration");
+        toolbar = (Toolbar) findViewById(R.id.tbar);
+        setSupportActionBar(toolbar);
+
+        //ActionBar bar = getSupportActionBar();
+        //bar.setDisplayHomeAsUpEnabled(true);
+        //bar.setTitle("Registration");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("Registration");
 
         usernameEditText = (EditText) findViewById(R.id.usernameText);
         passwordEditText = (EditText) findViewById(R.id.passwordTest);
@@ -108,7 +115,15 @@ public class RegistrationNew extends AppCompatActivity {
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                registerUser();
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                //Intent intent = new Intent(getApplicationContext(), testdside.class);
+                finish(); // need to save state that the user has logged in and so need to get out of the login scree permanently
+                startActivity(intent);
+
+
+
+                // Need to implement
+                //registerUser();
             }
         });
 

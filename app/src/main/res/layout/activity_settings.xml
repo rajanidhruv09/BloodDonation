@@ -6,4 +6,10 @@
     android:layout_height="match_parent"
     tools:context="com.mitrajani.blooddonation.settings">
 
+    <include layout="@layout/navigation_action"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tbar"></include>
+
+
 </android.support.constraint.ConstraintLayout>

@@ -6,6 +6,12 @@
     android:layout_height="match_parent"
     tools:context="com.mitrajani.blooddonation.QRGenerator">
 
+    <include layout="@layout/navigation_action"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tbar"></include>
+
+
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -37,7 +43,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/QRimageView"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/tbar"/>
 
 
 </RelativeLayout>

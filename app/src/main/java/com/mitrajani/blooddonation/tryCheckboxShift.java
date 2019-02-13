@@ -4,6 +4,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
@@ -16,15 +17,21 @@ public class tryCheckboxShift extends AppCompatActivity {
     RadioButton camp;
     RadioButton individual;
     private ViewPager viewPager;
+    private Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_try_checkbox_shift);
 
-        ActionBar bar = getSupportActionBar();
-        bar.setDisplayHomeAsUpEnabled(true);
-        bar.setTitle("Blood Request");
+        toolbar = (Toolbar) findViewById(R.id.tbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("Blood Request");
+
+        //ActionBar bar = getSupportActionBar();
+        //bar.setDisplayHomeAsUpEnabled(true);
+        //bar.setTitle("Blood Request");
 
         camp = (RadioButton) findViewById(R.id.camp);
         individual = (RadioButton) findViewById(R.id.indi);

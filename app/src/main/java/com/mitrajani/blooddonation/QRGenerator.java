@@ -4,6 +4,7 @@ import android.graphics.Bitmap;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -20,15 +21,21 @@ public class QRGenerator extends AppCompatActivity {
     private EditText editText;
     private Button qrGenerator;
     private ImageView imageView;
+    private Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_qrgenerator);
 
-        ActionBar bar = getSupportActionBar();
-        bar.setDisplayHomeAsUpEnabled(true);
-        bar.setTitle("QR Code");
+        toolbar = (Toolbar) findViewById(R.id.tbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("QR Code");
+
+        //ActionBar bar = getSupportActionBar();
+        //bar.setDisplayHomeAsUpEnabled(true);
+        //bar.setTitle("QR Code");
 
         editText = (EditText) findViewById(R.id.textGen);
         qrGenerator = (Button) findViewById(R.id.btn_generate);

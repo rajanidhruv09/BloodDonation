@@ -6,6 +6,11 @@
     android:background="#eeecec"
     android:layout_height="match_parent">
 
+    <include layout="@layout/navigation_action"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tbar"></include>
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="180dp"
@@ -13,6 +18,7 @@
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
         android:layout_marginTop="15dp"
+        android:layout_below="@id/tbar"
         android:id="@+id/relativeLayout5">
 
         <TextView
@@ -112,7 +118,6 @@
             android:hint="Enter email address"
 
             android:layout_marginTop="13dp"
-            android:layout_marginLeft="15dp"
             android:layout_marginStart="15dp"
             android:layout_below="@+id/textView11"
             android:layout_alignLeft="@+id/textView11"

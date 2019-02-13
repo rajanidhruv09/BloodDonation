@@ -47,10 +47,16 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
             {41.35366035, -72.98396018}, {41.25722764, -72.95723448},
             {41.34878443, -72.85383696}, {41.36833926, -72.96423196},
             {41.34131565, -72.92893542}, {41.27738649, -72.88311014},
-            {41.32393448, -72.93493155}};
+            {41.32393448, -72.93493155}, {0.33743068, 32.60502387},
+            {0.34293686, 32.59720411}, {0.35137391, 32.61404417},
+            {0.34646646, 32.60169159}, {0.34954421, 32.61495719},
+            {0.32327259, 32.59149712}, {0.32477511, 32.59316577},
+            {0.30862869, 32.59032288}, {0.31234658, 32.58770284},
+            {0.31245374, 32.57485116}};
 
     private GoogleMap mMap;
 
+    private Toolbar toolbar;
     Button button;
 
     private DrawerLayout mDrawerLayout;
@@ -62,10 +68,15 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ActionBar bar = getSupportActionBar();
+        toolbar = (Toolbar) findViewById(R.id.navAction);
+        setSupportActionBar(toolbar);
+
+        //ActionBar bar = getSupportActionBar();
         //bar.setDisplayHomeAsUpEnabled(true);
 
-        bar.setTitle("Blood Donation");
+        getSupportActionBar().setTitle("Blood Donation");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_action_profile);
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
@@ -87,8 +98,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         mToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.string.open, R.string.close);
         mDrawerLayout.addDrawerListener(mToggle);
         mToggle.syncState();
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_action_profile);
+
         //mToggle.setHomeAsUpIndicator(R.drawable.ic_action_profile);
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.navView);

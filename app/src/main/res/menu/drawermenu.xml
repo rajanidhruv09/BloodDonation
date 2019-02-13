@@ -2,7 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item android:id="@+id/db"
-        android:title="dashboard"
+        android:title="Dashboard"
         android:icon="@drawable/ic_dashboard"/>
 
         <item android:id="@+id/search"
@@ -15,6 +15,7 @@
 
     <item android:id="@+id/qrcode"
         android:title="QR Code"
+        android:icon="@mipmap/ic_qr"
         />
 
     <item android:id="@+id/qrScanner"
@@ -22,6 +23,7 @@
         />
 
     <item android:id="@+id/logout"
-        android:title="Log out" />
+        android:title="Log out"
+        android:icon="@drawable/ic_baseline_exit_to_app_24px"/>
 
 </menu>

@@ -7,6 +7,11 @@
     android:background="#eeecec"
     tools:context="com.mitrajani.blooddonation.tryCheckboxShift">
 
+    <include layout="@layout/navigation_action"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tbar"></include>
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="100dp"
@@ -14,6 +19,7 @@
         android:layout_marginRight="15dp"
         android:layout_marginTop="15dp"
         android:background="#FFFFFF"
+        android:layout_below="@id/tbar"
         android:id="@+id/relativeLayout3">
 
         <TextView

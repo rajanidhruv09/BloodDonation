@@ -13,13 +13,23 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 import android.os.AsyncTask;
+
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 import java.util.HashMap;
+import java.util.Map;
 
 public class LoginActivity extends AppCompatActivity {
     Button button, button1;
     EditText usernameEdittext, passwordEdittext;
+    private static final String loginURL="http://127.0.0.1/BD/login.php";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,11 +59,14 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+                /* Main thing working right now
                 //setContentView(R.layout.activity_main);
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                 //Intent intent = new Intent(getApplicationContext(), testdside.class);
                 finish(); // need to save state that the user has logged in and so need to get out of the login scree permanently
                 startActivity(intent);
+                */
+                userlogin();
             }
         });
 
@@ -96,6 +109,40 @@ public class LoginActivity extends AppCompatActivity {
     public void hidekeyboard(View view){
         InputMethodManager inputMethodManager = (InputMethodManager)getSystemService(Activity.INPUT_METHOD_SERVICE);
         inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
+    }
+
+    public void userlogin()
+    {
+        StringRequest request=new StringRequest(Request.Method.POST, loginURL, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                if(response.contains("success")){
+                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                    //Intent intent = new Intent(getApplicationContext(), testdside.class);
+                    finish();
+                    startActivity(intent);
+                }else{
+                    Toast.makeText(getApplicationContext(),"Invalid username or password", Toast.LENGTH_LONG).show();
+                }
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        }){
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params=new HashMap<>();
+                params.put("loginuser", "true");
+                params.put("username", usernameEdittext.getText().toString().trim());
+                params.put("userpassword", passwordEdittext.getText().toString().trim());
+                return params;
+            }
+        };
+        Volley.newRequestQueue(this).add(request);
+
     }
 
     private void login(){
